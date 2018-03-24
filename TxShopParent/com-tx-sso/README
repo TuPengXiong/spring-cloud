@@ -1,0 +1,29 @@
+##单点登陆系统
+
+http://localhost:8769/oauth/authorize?client_id=test&state=test&response_type=code&scope=test&redirect_uri=https%3a%2f%2fbaidu.com
+http://localhost:8769/oauth/authorize?client_id=test&grant_type=password&response_type=code&redirect_uri=https%3a%2f%2fbaidu.com
+http://localhost:8769/oauth/authorize?client_id=test&grant_type=authorization_code&code=53DZwX&response_type=token&redirect_uri=https%3a%2f%2fbaidu.com
+http://localhost:8769/oauth/authorize?client_id=test&state=test&response_type=code&scope=info&redirect_uri=https%3a%2f%2fbaidu.com
+# grant_type
+1. authorization_code
+1. password
+1. implicit
+1. refresh_token
+1. client_credentials
+# response_type
+1. code
+1. token
+
+## 比较方法授权的类型
+
+| 方法授权类型 							| 声明方式		| JSR标准		|允许SpEL表达式 |
+| ------ 							| ------ 	| ------ 	|YES		|
+| @PreAuthorize @PostAuthorize  	| 注解 		| No 		|No 		|
+| @RolesAllowed @PermitAll @DenyAll	| 注解 		| YES 		|No 		|
+| @Secure 							| 注解 		| No 		|No 		|
+| protect-pointcut 					| xml 		| No 		|No 		|
+
+# Tips
+1. hasRole spring 容器默认 以 Role_ 前缀
+2. hasAuthority 没有默认前缀
+
